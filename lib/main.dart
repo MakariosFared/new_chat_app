@@ -1,5 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_chat_app/pages/Cubits/login_cubit/login_cubit.dart';
 import 'package:my_chat_app/pages/chat_page.dart';
 import 'package:my_chat_app/pages/login_page.dart';
 import 'package:my_chat_app/pages/register_page.dart';
@@ -12,20 +14,24 @@ Future<void> main() async {
   );
   runApp(const ScholarChat());
 }
+
 class ScholarChat extends StatelessWidget {
   const ScholarChat({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
-      routes: {
-        LogInPage.id : (context) =>  LogInPage(),
-        RegisterPage.id : (context) =>  const RegisterPage(),
-        ChatPage.id : (context) =>  ChatPage(),
-      },
-      theme: ThemeData(useMaterial3: false),
-      debugShowCheckedModeBanner: false,
-      initialRoute: LogInPage.id,
+    return BlocProvider(
+      create: (context) => LoginCubit(),
+      child: MaterialApp(
+        routes: {
+          LogInPage.id: (context) => LogInPage(),
+          RegisterPage.id: (context) => const RegisterPage(),
+          ChatPage.id: (context) => ChatPage(),
+        },
+        theme: ThemeData(useMaterial3: false),
+        debugShowCheckedModeBanner: false,
+        initialRoute: LogInPage.id,
+      ),
     );
   }
 }
