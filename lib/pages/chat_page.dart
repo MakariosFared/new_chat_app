@@ -54,15 +54,11 @@ class ChatPage extends StatelessWidget {
               title: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  // const Spacer(flex: 1),
                   Image.asset(
                     kLogo,
                     height: 65,
                   ),
                   const Text(' Chat'),
-                  // const Spacer(
-                  //   flex: 2,
-                  // )
                 ],
               ),
             ),
@@ -92,7 +88,7 @@ class ChatPage extends StatelessWidget {
                       messages.add({
                         kMessage: data,
                         kCreatedAt: DateTime.now(),
-                        'id': email,
+                        'id': email
                       });
                       controller.clear();
                       _controller.animateTo(
