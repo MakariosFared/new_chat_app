@@ -104,7 +104,6 @@ class _RegisterPageState extends State<RegisterPage> {
                         showSnackBar(context, 'there was an error');
                       }
                       isLoading = false;
-                      setState(() {});
                     } else {}
                   },
                   text: 'REGISTER',

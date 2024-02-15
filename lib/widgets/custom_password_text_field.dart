@@ -6,19 +6,11 @@ class CustomPasswordFormTextField extends StatefulWidget {
     this.onChanged,
     this.hintText,
     this.obscureText = false,
-    this.passwordInVisible = true,
   });
 
   String? hintText;
   Function(String)? onChanged;
   bool? obscureText;
-  bool? passwordInVisible;
-
-  Icon eyeIcon1 =
-      const Icon(Icons.remove_red_eye_outlined, color: Colors.white);
-  Icon eyeIcon2 = const Icon(
-    Icons.remove_red_eye,
-  );
 
   @override
   State<CustomPasswordFormTextField> createState() =>
