@@ -5,7 +5,8 @@ import 'package:my_chat_app/pages/Cubits/login_cubit/login_cubit.dart';
 import 'package:my_chat_app/pages/chat_page.dart';
 import 'package:my_chat_app/pages/register_page.dart';
 import 'package:my_chat_app/widgets/custom_button.dart';
-import 'package:my_chat_app/widgets/custom_text_field.dart';
+import 'package:my_chat_app/widgets/custom_email_text_field.dart';
+import 'package:my_chat_app/widgets/custom_password_text_field.dart';
 import '../const.dart';
 import '../helper/show_snack_bar.dart';
 
@@ -77,14 +78,14 @@ class LogInPage extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 30),
-                  CustomFormTextField(
+                  CustomEmailFormTextField(
                     onChanged: (data) {
                       email = data;
                     },
                     hintText: 'Email',
                   ),
                   const SizedBox(height: 15),
-                  CustomFormTextField(
+                  CustomPasswordFormTextField(
                     obscureText: true,
                     onChanged: (data) {
                       password = data;

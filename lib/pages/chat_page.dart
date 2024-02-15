@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:my_chat_app/models/message.dart';
@@ -27,16 +28,41 @@ class ChatPage extends StatelessWidget {
           }
           return Scaffold(
             appBar: AppBar(
+              leading: IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: const Icon(Icons.arrow_back),
+              ),
+              actions: [
+                Padding(
+                  padding: const EdgeInsets.only(right: 8),
+                  child: TextButton(
+                    onPressed: () async {
+                      await FirebaseAuth.instance.signOut();
+                      Navigator.pop(context);
+                    },
+                    child: const Text(
+                      'Log In',
+                      style: TextStyle(fontSize: 16, color: Colors.white),
+                    ),
+                  ),
+                ),
+              ],
               backgroundColor: kPrimaryColor,
               automaticallyImplyLeading: false,
               title: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  // const Spacer(flex: 1),
                   Image.asset(
                     kLogo,
                     height: 65,
                   ),
                   const Text(' Chat'),
+                  // const Spacer(
+                  //   flex: 2,
+                  // )
                 ],
               ),
             ),

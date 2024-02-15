@@ -4,7 +4,7 @@ import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:my_chat_app/const.dart';
 import '../helper/show_snack_bar.dart';
 import '../widgets/custom_button.dart';
-import '../widgets/custom_text_field.dart';
+import '../widgets/custom_email_text_field.dart';
 import 'chat_page.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -70,14 +70,14 @@ class _RegisterPageState extends State<RegisterPage> {
                   ],
                 ),
                 const SizedBox(height: 30),
-                CustomFormTextField(
+                CustomEmailFormTextField(
                   onChanged: (data) {
                     email = data;
                   },
                   hintText: 'Email',
                 ),
                 const SizedBox(height: 15),
-                CustomFormTextField(
+                CustomEmailFormTextField(
                   onChanged: (data) {
                     password = data;
                   },
@@ -91,7 +91,8 @@ class _RegisterPageState extends State<RegisterPage> {
                       setState(() {});
                       try {
                         await registerUser();
-                        Navigator.pushNamed(context, ChatPage.id ,arguments: email);
+                        Navigator.pushNamed(context, ChatPage.id,
+                            arguments: email);
                       } on FirebaseAuthException catch (e) {
                         if (e.code == 'weak-password') {
                           showSnackBar(context, 'The password is too weak.');
