@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:my_chat_app/pages/Cubits/chat_cubit/chat_cubit.dart';
 import 'package:my_chat_app/pages/Cubits/login_cubit/login_cubit.dart';
 import 'package:my_chat_app/pages/chat_page.dart';
 import 'package:my_chat_app/pages/register_page.dart';
@@ -25,6 +26,7 @@ class LogInPage extends StatelessWidget {
         if (state is LoginLoading) {
           isLoading = true;
         } else if (state is LoginSuccess) {
+          BlocProvider.of<ChatCubit>(context).getMessages();
           Navigator.pushNamed(context, ChatPage.id);
           isLoading = false;
         } else if (state is LoginFailure) {
