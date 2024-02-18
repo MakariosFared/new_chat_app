@@ -7,6 +7,7 @@ import 'package:my_chat_app/pages/blocs/auth_bloc.dart';
 import 'package:my_chat_app/pages/chat_page.dart';
 import 'package:my_chat_app/pages/login_page.dart';
 import 'package:my_chat_app/pages/register_page.dart';
+import 'package:my_chat_app/simple_bolc_observer.dart';
 import 'firebase_options.dart';
 
 Future<void> main() async {
@@ -14,6 +15,7 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  Bloc.observer = SimpleBlocObserver();
   runApp(const ScholarChat());
 }
 
